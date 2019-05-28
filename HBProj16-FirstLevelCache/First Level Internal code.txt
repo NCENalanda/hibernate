@@ -1,0 +1,50 @@
+
+  public  class FirstLevelCache{
+    private  Map<Class,Map<Object,Object>> cacheMap;
+    private Map<Object,Object>entityMap;
+
+    public  FirstLevelCache(){
+       cacheMap=new HashMap();
+      //entityMap=new HashMap();
+     }
+
+   public void put(Object id, Object dmn){
+      Class clazz=dmn.getClass();
+       if(!cacheMap.containsKey(clazz)){
+             entityMap=new HashMap();
+          }
+        else{
+            entityMap=cacheMap.get(clazz);
+          }
+           if(!entityMap.containsKey(id)){
+                 entityMap.put(id,dmn);
+                 cacheMap.put(clazz,entityMap);
+             }
+         }//method
+  public   Object fetch(Class clazz,Object id){
+      if(cacheMap.containsKey(clazz){
+          entityMap=cacheMap.get(clazz);
+          if(entityMap.containsKey(id)){
+              return entityMap.get(id);
+           }
+          else{
+               //get Objecct from  DB s/w
+           put(id,dmn);
+           retunr dmn;
+          }
+             }
+          else{
+             //get Objecct from  DB s/w
+           put(id,dmn);
+        retunr dmn;
+          }
+    }//method
+ Client App
+=========
+  Project proj=ses.get(Project.class,1001);
+
+  Project proj1=ses.get(Project.class,1001);
+
+
+
+

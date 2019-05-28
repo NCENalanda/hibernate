@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping
+  PUBLIC "-//Hibernate?Hibernate Mapping DTD//EN"
+  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.nt.domain.PersonDetails" table="Person_Details">
+    <id name="pid" type="int" length="10">
+      <generator class="increment"/>
+    </id>
+    <property name="pname" not-null="true" type="string" length="15"/>
+    <component name="pjob" class="com.nt.domain.JobDetails">
+        <property name="desg" type="string" length="10" not-null="true" />
+        <property name="company" type="string" length="10" not-null="true"/>
+        <property name="salary" type="long" length="10" not-null="true"/>
+        <property name="deptNo" type="int" length="10" not-null="true"/>
+    </component>
+  </class>
+   <query name="GET_ALL_PERSONDETAILS">
+      <![CDATA[
+         from PersonDetails
+      ]]>
+   </query>
+   <query name="GET_ALL_PERSONDETAILS_BY_DESG">
+      <![CDATA[
+         select pid,pjob.desg,pjob.company from PersonDetails where pjob.desg=:position
+      ]]>
+   </query>
+   
+   
+
+</hibernate-mapping>  

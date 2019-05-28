@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping
+  PUBLIC "-//Hibernate?Hibernate Mapping DTD//EN"
+  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.nt.domain.Employee">
+    <id name="eid" type="int" length="10">
+      <generator class="increment"/>
+    </id>
+    <property name="firstName" not-null="true" type="string" length="15"/>
+    <property name="lastName" not-null="true" type="string"  length="15" />
+    <property name="email" not-null="true" unique-key="true" type="string" length="15"/>
+  </class>
+   <!-- Named Native SQL Entity Query -->
+  <sql-query name="GET_EMPS_BY_RANGE">
+     <return class="com.nt.domain.Employee"/>
+    <![CDATA[
+       SELECT EID,FIRSTNAME,LASTNAME,EMAIL FROM EMPLOYEE  WHERE EID>=:start AND EID<=:end 
+      ]]>
+  </sql-query>
+  
+   <!-- Named Native SQL Scalar Query -->
+  <sql-query name="GET_EMPS_BY_LASTNAME">
+    <return-scalar column="EID" type="int"/>
+    <return-scalar column="FIRSTNAME" type="string"/>
+    <return-scalar column="EMAIL" type="string"/>     
+    <![CDATA[
+       SELECT EID,FIRSTNAME,EMAIL FROM EMPLOYEE  WHERE LASTNAME=:lname 
+      ]]>
+  </sql-query>
+  
+  <sql-query name="EMP_INSERT">
+    <![CDATA[
+       INSERT INTO EMPLOYEE VALUES(:id,:fname,:lname,:mail)
+    ]]>
+  </sql-query>
+</hibernate-mapping>  

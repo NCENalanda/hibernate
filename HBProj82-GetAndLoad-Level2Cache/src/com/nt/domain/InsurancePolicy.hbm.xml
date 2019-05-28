@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping
+  PUBLIC "-//Hibernate?Hibernate Mapping DTD//EN"
+  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.nt.domain.InsurancePolicy" table="INSURANCE_POLICY"  >
+    
+    <cache usage="read-only"/>
+    <!-- singular Id Field-->
+    <id name="policyId" column="POLICYID"/>
+    <property name="policyName" column="POLICYNAME"/>
+    <property name="tenure" column="TENURE"/>
+    <property name="premium" column="PREMIUM"/>
+  </class>
+
+</hibernate-mapping>  

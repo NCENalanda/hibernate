@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping
+  PUBLIC "-//Hibernate?Hibernate Mapping DTD//EN"
+  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+  <class name="com.nt.bo.StudentBO" table="HB_STUDENT">
+    <!-- singular Id Field-->
+    <id name="sno" length="10" type="int">
+      <generator class="increment"/>
+    </id> 
+    <property name="sname" length="20" type="string"/>
+    <property name="total"  length="10" type="int"/>
+    <property name="avg"  length="10" type="float"/>
+    <property name="result"  length="8" type="string"/>
+  </class>
+
+</hibernate-mapping>  

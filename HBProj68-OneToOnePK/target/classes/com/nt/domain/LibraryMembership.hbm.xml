@@ -1,0 +1,15 @@
+<!DOCTYPE hibernate-mapping
+  PUBLIC "-//Hibernate?Hibernate Mapping DTD//EN"
+  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.nt.domain">
+   <class name="LibraryMembership" table="LIB_MEMBERSHIP" >
+       <id name="lid" type="int"  length="7">
+          <generator class="foreign">
+            <param name="property">studentDetails</param>
+          </generator>
+       </id>
+       <property name="doj" type="date" not-null="true"  unique="false"/>
+        <one-to-one name="studentDetails" class="Student" 	cascade="all" lazy="proxy"/>
+   </class>
+</hibernate-mapping>

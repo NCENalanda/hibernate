@@ -1,0 +1,1 @@
+SQL> create table HB_STUDENT(sno number(5) primary key,sname varchar2(20),total number(10),avg number(10,2),result varchar2(8));

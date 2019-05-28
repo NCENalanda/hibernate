@@ -1,0 +1,14 @@
+<!DOCTYPE hibernate-mapping
+  PUBLIC "-//Hibernate?Hibernate Mapping DTD//EN"
+  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.nt.domain">
+   <class name="Student" table="STUDENT_TAB" >
+       <id name="sid" type="int"  length="7">
+         <generator class="increment"/>
+       </id>
+       <property name="name" type="string" not-null="true" length="13" unique="false"/>
+       <property name="address" type="string" not-null="true" length="13" unique="false"/>
+        <one-to-one name="libraryDetails" class="LibraryMembership"	cascade="all" lazy="proxy"/>
+   </class>
+</hibernate-mapping>

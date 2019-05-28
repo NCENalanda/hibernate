@@ -1,0 +1,17 @@
+ <!DOCTYPE hibernate-configuration PUBLIC
+ "-//Hibernate/Hibernate Configuration DTD 3.0//EN" 
+ "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+	     <!-- Working with Server Managed JDBC Con pool -->
+	    <property name="connection.provider_class">org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl</property>
+		<property name="connection.datasource">DsJndi</property>
+	    <!-- hibernate properties --> 
+		 <property name="show_sql">true</property>
+		 <property name="format_sql">true</property>
+ 		 <property name="dialect">org.hibernate.dialect.Oracle10gDialect</property> 
+		<!-- mapping file -->
+		<mapping resource="com/nt/bo/student.hbm.xml"/>
+	</session-factory>
+</hibernate-configuration>

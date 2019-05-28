@@ -1,0 +1,5 @@
+SQL>create table TMC_CUSTOMERS(CUSTID varchar2(10) primary key,CUSTNAME varchar2(15),CUSTADDRS varchar2(14),billAmt number(10,2));
+ 
+ SQL> create sequence TMC_CUSTID_SEQUENCE start with 1 increment by 1;
+ 
+  

@@ -1,0 +1,1 @@
+SQL> create table  Company_Projects(projectId number(5) primary key,projName varchar2(15),client varchar2(15),team_size number(8),startDate date);

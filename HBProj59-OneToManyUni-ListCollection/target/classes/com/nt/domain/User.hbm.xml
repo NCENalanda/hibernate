@@ -1,0 +1,20 @@
+<!DOCTYPE hibernate-mapping
+  PUBLIC "-//Hibernate?Hibernate Mapping DTD//EN"
+  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+   <class name="com.nt.domain.User" table="USER_TABLE1"  >
+     <id name="userId" type="int" length="11">
+       <generator class="increment"/>
+     </id>
+     <property name="firstName" column="FIRST_NAME" length="15" type="string" not-null="true"/>
+     <property name="addrs" column="ADDRS" length="15" type="string" not-null="true"/>
+ 
+     <list name="phones"   cascade="all-delete-orphan" lazy="extra">
+        <key column="unid"/>
+        <list-index column="childs_indx" base="1"/>
+        <one-to-many  class="com.nt.domain.PhoneNumber"/>
+     </list>
+        
+   </class>
+</hibernate-mapping>

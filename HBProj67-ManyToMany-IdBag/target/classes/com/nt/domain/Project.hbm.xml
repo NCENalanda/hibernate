@@ -1,0 +1,21 @@
+<!DOCTYPE hibernate-mapping
+  PUBLIC "-//Hibernate?Hibernate Mapping DTD//EN"
+  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.nt.domain">
+   <class name="Project" table="Projects" >
+       <id name="proid" type="int"  length="7">
+         <generator class="sequence">
+            <param name="sequence_name">proj_seq</param>
+         </generator>
+       </id>
+       <property name="proname" type="string" not-null="true" length="13" unique="true"/>
+       <idbag name="programmers" table="PROGRAMMERS_PROJECTS" cascade="all" lazy="extra">
+         <collection-id type="int" column="prgmr_proj_indx" length="5">
+            <generator class="increment"/>
+         </collection-id>
+         <key column="project_id"/>
+         <many-to-many class="Programmer" column="programmer_id"/>
+       </idbag>
+   </class>
+</hibernate-mapping>

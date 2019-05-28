@@ -1,0 +1,6 @@
+create or replace procedure  P_GET_HOLDERS_BY_BALANCE(details out Sys_refcursor,startBal in number,endBal in number)as
+begin
+   open details for
+       SELECT ACNO,HOLDERNAME,TYPE,BALANCE FROM BANK_ACCOUNT WHERE  BALANCE>=startBal AND BALANCE<=endBal;
+end;
+/

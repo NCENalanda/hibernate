@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping
+  PUBLIC "-//Hibernate?Hibernate Mapping DTD//EN"
+  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.nt.domain.ProgrammerProjectInfo" table="PROGRAMMERS_PROJECTS_INFO">
+    <!-- Composite Id Field-->
+     <composite-id name="id" class="com.nt.domain.PrgmrProjId">
+       <key-property name="prgmrId" column="PRGMRID"/>
+       <key-property name="projId" column="PROJID"/>
+     </composite-id>
+    <property name="prgmrName" length="15"/>
+    <property name="projName" length="15"/>
+    <property name="status" length="10"/>
+  </class>
+
+</hibernate-mapping>  

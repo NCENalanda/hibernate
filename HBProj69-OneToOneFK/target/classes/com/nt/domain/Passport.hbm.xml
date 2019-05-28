@@ -1,0 +1,26 @@
+<!DOCTYPE hibernate-mapping
+  PUBLIC "-//Hibernate?Hibernate Mapping DTD//EN"
+  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.nt.domain">
+   <class name="Passport" table="PASSPORT_TAB" >
+       <id name="ppNo" type="int"  length="10">
+         <generator class="sequence">
+           <param name="sequence_name">ppNo_seq</param>
+         </generator>
+       </id>
+       <property name="country" type="string" not-null="true" length="13" unique="false"/>
+       <property name="dob" type="date"   unique="false"/>
+       <property name="expiryDate" type="date"   unique="false"/>
+       <many-to-one not-null="true" 
+                    unique="true"
+                    name="personDetails"
+                    class="Person"
+                    column="person_id"
+                    cascade="all"
+                    lazy="proxy"
+                    />
+       
+       
+   </class>
+</hibernate-mapping>

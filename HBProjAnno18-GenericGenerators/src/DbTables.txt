@@ -1,0 +1,1 @@
+SQL> create table Bank_Tx_Details(TxId number(5) primary key,TxName varchar2(20),TxAmount number(7,2),TxDate date);

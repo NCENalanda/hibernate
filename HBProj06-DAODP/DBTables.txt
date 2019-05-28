@@ -1,0 +1,1 @@
+SQL> create table TaskAssignment(taskId number(5) primary key,taskName varchar2(20),assignedDate Date, submissionDate date,remarks varchar2(20));

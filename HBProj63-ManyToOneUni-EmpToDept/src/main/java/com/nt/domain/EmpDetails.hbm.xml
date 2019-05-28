@@ -1,0 +1,14 @@
+<!DOCTYPE hibernate-mapping
+  PUBLIC "-//Hibernate?Hibernate Mapping DTD//EN"
+  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="com.nt.domain.EmpDetails" table="EmpDetails">
+    <id name="empNo" type="int"  length="10">
+      <generator class="increment"/>
+    </id>
+    <property name="empName" type="string" length="10" not-null="true"/>
+    <property name="salary" type="int" length="10"/>
+    <many-to-one name="dept" class="com.nt.domain.Department" column="deptno" cascade="all" lazy="proxy"/>
+  </class>
+</hibernate-mapping>

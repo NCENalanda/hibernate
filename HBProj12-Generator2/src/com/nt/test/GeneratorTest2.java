@@ -1,0 +1,53 @@
+package com.nt.test;
+
+import java.util.Date;
+
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+import com.nt.domain.BankTxDetails;
+import com.nt.utility.HibernateUtil;
+
+public class GeneratorTest2 {
+	public static void main(String[] args) {
+		Session ses=null;
+		boolean flag=false;
+		Transaction tx=null;
+		BankTxDetails txDetails=null,txDetails1=null;
+		int idVal=0;
+		//get Session
+		ses=HibernateUtil.getSession();
+		try{
+		//begin Tx
+		 tx=ses.beginTransaction();
+		 //prepare Domain  class obj
+		 txDetails=new BankTxDetails();
+		 txDetails.setTxName("WithDraw");
+		 txDetails.setTxAmount(5002);
+		 txDetails.setTxDate(new Date());
+         //idVal=(int)ses.save(txDetails);
+		 idVal=((Integer)ses.save(txDetails)).intValue();
+         System.out.println("id Value::"+idVal);
+		 flag=true;
+		
+		}
+		catch(HibernateException he){
+			he.printStackTrace();
+			flag=false;
+		}
+		catch(Exception e){
+			e.printStackTrace();
+			flag=false;
+		}
+		finally{
+			if(flag==true)
+				tx.commit();
+			else
+				tx.rollback();
+			HibernateUtil.closeSession(ses);
+			HibernateUtil.closeSessionFactory();
+		}//finally
+
+	}//main
+}//class

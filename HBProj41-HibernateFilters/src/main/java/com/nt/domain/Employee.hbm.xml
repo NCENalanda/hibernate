@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping
+  PUBLIC "-//Hibernate?Hibernate Mapping DTD//EN"
+  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.nt.domain.Employee" table="Employee">
+    <id name="eid" type="int" length="10">
+      <generator class="increment"/>
+    </id>
+    <property name="firstName" not-null="true" type="string" length="15"/>
+    <property name="lastName" not-null="true" type="string"  length="15"  />
+    <property name="email" not-null="true"  type="string" length="15"/>
+    <filter name="HB_FILTER_EID_RANGE" condition="EID>=:min and EID&lt;=:max"/>
+  </class>
+  
+  <filter-def name="HB_FILTER_EID_RANGE">
+     <filter-param name="min" type="int"/>
+     <filter-param name="max" type="int"/>
+  </filter-def>
+</hibernate-mapping>  

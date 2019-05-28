@@ -1,0 +1,12 @@
+<!DOCTYPE hibernate-mapping
+  PUBLIC "-//Hibernate?Hibernate Mapping DTD//EN"
+  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="com.nt.domain.PhoneNumber" table="PHONE_NUMBERS">
+    <id name="phone" column="PHONE" type="long"/>
+    <property name="numberType" column="NUMBER_TYPE" type="string" not-null="true" length="10"/>
+    <property name="provider" column="PROVIDER" type="string" not-null="true" length="10"/>
+    <property name="unid" column="UNID" type="int" length="6" />
+  </class>
+</hibernate-mapping>

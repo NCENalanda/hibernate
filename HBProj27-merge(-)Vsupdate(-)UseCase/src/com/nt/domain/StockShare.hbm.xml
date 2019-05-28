@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping
+  PUBLIC "-//Hibernate?Hibernate Mapping DTD//EN"
+  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.nt.domain.StockShare" table="STOCK_SHARE1">
+    <id name="stockId" type="int" length="10">
+       <generator class="increment"/>
+    </id>
+    <property name="stockName" not-null="true" type="string" length="15"/>
+    <property name="ownerCompany" not-null="true" type="string"  length="15"  />
+    <property name="currentPrice" not-null="true" type="float" length="10" precision="2"/>
+     <property name="status" not-null="true" type="string" length="10"/>
+  </class>
+
+</hibernate-mapping>  

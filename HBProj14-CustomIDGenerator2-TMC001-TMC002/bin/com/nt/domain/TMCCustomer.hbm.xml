@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping
+  PUBLIC "-//Hibernate?Hibernate Mapping DTD//EN"
+  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="com.nt.domain.TMCCustomer"  table="TMC_CUSTOMERS">
+    <id name="custId" type="string" length="10">
+      <generator class="com.nt.generators.CustomTMCSequneceIdGenerator"/>
+    </id>
+    <property name="custName"  type="string" length="15"/>
+    <property name="custAddrs"  type="string" length="20"/>
+    <property name="billAmt"  type="float" />
+  </class>
+
+
+</hibernate-mapping>

@@ -1,0 +1,15 @@
+<!DOCTYPE hibernate-mapping
+  PUBLIC "-//Hibernate?Hibernate Mapping DTD//EN"
+  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.nt.domain">
+   <class name="Person" table="PERSON_TAB" >
+   	<id name="pid">
+   		<generator class="increment"/>
+	</id>
+	<property name="pname" type="string" length="13" not-null="true"/>
+	<property name="age" type="int" length="3" not-null="true" />      
+	<property name="addrs" type="string" length="13" not-null="true" /> 
+       
+   </class>
+</hibernate-mapping>

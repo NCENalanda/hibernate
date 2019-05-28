@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping
+  PUBLIC "-//Hibernate?Hibernate Mapping DTD//EN"
+  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.nt.domain.Person" table="INH_PERSON3">
+		<id name="id" length="10" type="int">
+			<generator class="sequence" />
+		</id>
+		<property name="name" length="15" type="string" not-null="true" />
+		<property name="company" length="15" type="string" not-null="true" />
+
+		<union-subclass name="com.nt.domain.Employee" table="INH_EMPLOYEE3">
+			<property name="desg" length="15" type="string" not-null="true" />
+			<property name="salary" length="10" type="int" not-null="true" />
+		</union-subclass>
+		<union-subclass name="com.nt.domain.Customer" table="INH_CUSTOMER3">
+			<property name="billAmt" length="10" precision="2" type="float" not-null="true" />
+			<property name="addrs" length="15" type="string" not-null="true"/>
+		</union-subclass>
+	</class>
+</hibernate-mapping>  

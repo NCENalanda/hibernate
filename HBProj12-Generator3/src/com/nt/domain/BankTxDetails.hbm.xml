@@ -1,0 +1,34 @@
+<!DOCTYPE hibernate-mapping
+  PUBLIC "-//Hibernate?Hibernate Mapping DTD//EN"
+  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="com.nt.domain.BankTxDetails" table="Bank_Tx_Details1">
+     <!-- <id name="txId" type="int" length="10">
+        <generator class="increment" />
+     </id> -->
+     <!-- <id name="txId" type="int" length="10">
+        <generator class="identity" />
+     </id>
+      -->
+<!-- <id name="txId" type="int" length="10">
+        <generator class="sequence" />
+     </id>
+ -->
+ <!-- <id name="txId" type="string" length="10">
+        <generator class="guid" />
+     </id>
+  -->
+   <id name="txId" type="int" length="10">
+        <generator class="hilo" >
+          <param name="max_lo">5</param>
+          <param name="column">next_hi</param>
+          <param name="table">HB_UNIQUE</param>
+        </generator>
+     </id>
+        
+     <property name="txName" length="20" type="string"/>
+     <property name="txAmount" length="10" type="float"/>
+     <property name="txDate" type="date"/>
+  </class>
+</hibernate-mapping>

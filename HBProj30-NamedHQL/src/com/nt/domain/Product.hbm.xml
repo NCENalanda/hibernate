@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping
+  PUBLIC "-//Hibernate?Hibernate Mapping DTD//EN"
+  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.nt.domain.Product">
+    <id name="pid" type="int" length="10">
+      <generator class="increment"/>
+    </id>
+    <property name="pname" not-null="true" type="string" length="15"/>
+    <property name="price" not-null="true" type="float"  length="10" precision="2"/>
+    <property name="qty" not-null="true" type="int" length="6"/>
+  </class>
+  <query name="GET_ALL_PRODUCTS">
+      from Product
+  </query>
+  <query name="GET_ALL_PRODUCTS_BY_PRICE_RANGE">
+     <!-- from Product where price>=:start and price &lt;=:end -->
+     <![CDATA[
+        from Product where price>=:start and price <=:end 
+      ]]>  
+  </query>
+  <query name="UPDATE_PRODUCTS_ASPER_GST">
+     <![CDATA[
+      update Product set price=price+(price*0.05) where price>=:startPrice
+     ]]>
+  </query>
+  
+</hibernate-mapping>  

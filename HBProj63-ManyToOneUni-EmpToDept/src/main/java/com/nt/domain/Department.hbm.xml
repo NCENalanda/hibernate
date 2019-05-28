@@ -1,0 +1,18 @@
+<!DOCTYPE hibernate-mapping
+  PUBLIC "-//Hibernate?Hibernate Mapping DTD//EN"
+  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+   <class name="com.nt.domain.Department" table="Department" >
+     <id name="deptNo" type="int" length="10">
+       <generator class="sequence">
+          <param name="sequence_name">dept_seq</param>
+       </generator>
+     </id>
+     <property name="deptName" type="string" length="10" not-null="true"/>
+     <property name="deptHead" type="string" length="15" not-null="true"/>
+   </class>
+</hibernate-mapping>
+
+<!-- SQL> create sequence dept_seq start with 1000 increment by 1;
+ -->

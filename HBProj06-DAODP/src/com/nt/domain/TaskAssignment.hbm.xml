@@ -1,0 +1,15 @@
+<!DOCTYPE hibernate-mapping
+  PUBLIC "-//Hibernate?Hibernate Mapping DTD//EN"
+  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+  
+  <hibernate-mapping>
+    <class name="com.nt.domain.TaskAssignment">
+      <id name="taskId" type="int" length="10">
+        <generator class="increment"/>
+      </id>
+      <property name="taskName" type="string" length="20"/>
+      <property name="assignedDate" type="date"/>
+      <property name="submissionDate" type="date" />
+      <property name="remarks"  type="string" length="20"/>
+    </class>
+  </hibernate-mapping>

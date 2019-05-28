@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping
+  PUBLIC "-//Hibernate?Hibernate Mapping DTD//EN"
+  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+  <class name="com.nt.domain.Product">
+    <id name="pid" type="int" length="10">
+      <generator class="increment"/>
+    </id>
+    <property name="pname" not-null="true" type="string" length="15"/>
+    <property name="price" not-null="true" type="float"  length="10" precision="2"/>
+    <property name="qty" not-null="true" type="int" length="6"/>
+  </class>
+  
+   <class name="com.nt.domain.PremiumProduct" table="Premium_Product">
+    <id name="pid" type="int" length="10"/>
+    <property name="pname" not-null="true" type="string" length="15"/>
+    <property name="price" not-null="true" type="float"  length="10" precision="2"/>
+    <property name="qty" not-null="true" type="int" length="6"/>
+  </class>
+  
+</hibernate-mapping>  

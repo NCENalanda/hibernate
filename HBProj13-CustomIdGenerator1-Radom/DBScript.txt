@@ -1,0 +1,8 @@
+ SQL> desc TMC_LUCKYDRAWs_CUPONS;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ CUPONNO                                   NOT NULL NUMBER(8)
+ CUSTOMERNAME                                       VARCHAR2(20)
+ BILLNO                                             NUMBER(10)
+ PURCHASEDATE                                       DATE
+ BILLAMT                                            NUMBER(10,2)

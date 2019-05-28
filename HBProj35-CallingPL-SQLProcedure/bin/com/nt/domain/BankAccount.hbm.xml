@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping
+  PUBLIC "-//Hibernate?Hibernate Mapping DTD//EN"
+  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.nt.domain.BankAccount" table="Bank_Account">
+    <id name="acno" type="long" length="10">
+      <generator class="increment"/>
+    </id>
+    <property name="holderName" not-null="true" type="string" length="15"/>
+    <property name="type" not-null="true" type="string"  length="15" />
+    <property name="balance" not-null="true"  type="float" length="10" precision="2"/>
+  </class>
+  <sql-query name="CALL_PROCEDURE" callable="true">
+    <return class="com.nt.domain.BankAccount"/>
+    <![CDATA[
+        {call  P_GET_HOLDERS_BY_BALANCE(?,:start,:end)}
+
+    ]]>
+    <!-- <![CDATA[
+        {call  P_GET_HOLDERS_BY_BALANCE(?,:start,:end)}
+
+    ]]> -->
+    
+  
+  </sql-query>
+</hibernate-mapping>  

@@ -1,0 +1,7 @@
+SQL> create table Anno_user_table(userId number(5) primary key,first_name varchar2(15),addrs varchar2(15));
+
+Table created.
+
+SQL> create table Anno_phone_numbers(phone number(11) primary key,number_type varchar2(10),provider varchar2(10),unid number(5) references user_table(userId));
+
+Table created.

@@ -1,0 +1,13 @@
+CREATE OR REPLACE TRIGGER  TXID_TGR_BEFORE_INSERT
+    BEFORE INSERT   ON  Bank_Tx_Details   FOR EACH ROW
+DECLARE
+    tempTxId number(9);
+
+BEGIN
+   --Get TxID by executing  Sequence
+   SELECT TXID_SEQ.NEXTVAL INTO tempTxId     FROM dual;
+
+   -- Update TxID column with Sequence generated value
+   :new.TXID:= tempTxId;
+END;
+/

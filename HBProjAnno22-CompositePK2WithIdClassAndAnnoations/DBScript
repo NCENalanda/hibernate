@@ -1,0 +1,1 @@
+SQL> create table programmers_projects_info(prgmrId number(6),projId number(7),prgmrName varchar2(15),projName varchar2(15),status varchar2(10),primary key(prgmrId,projId));

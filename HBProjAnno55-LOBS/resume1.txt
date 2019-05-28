@@ -1,0 +1,5 @@
+name:raja
+age :30
+addrs:hyd
+qualification :MCA
+Experience :30

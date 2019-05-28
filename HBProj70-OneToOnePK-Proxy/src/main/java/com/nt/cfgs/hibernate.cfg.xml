@@ -1,0 +1,28 @@
+ <!DOCTYPE hibernate-configuration PUBLIC
+ "-//Hibernate/Hibernate Configuration DTD 3.0//EN" 
+ "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+	   <!-- connection properties  -->
+	    <property name="connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+ 	    <property name="connection.url">jdbc:oracle:thin:@localhost:1521:xe</property>
+	    <property name="connection.username">system</property>
+	    <property name="connection.password">manager</property>
+	    <property name="connection.provider_class">org.hibernate.c3p0.internal.C3P0ConnectionProvider</property>
+	     <!-- c3P0 properties -->
+	     <property name="c3P0.max_size">10</property>
+	     <property name="c3P0.min_size">2</property>
+	     <property name="c3P0.timeout">10</property>
+	     <property name="c3P0.acquire_increment">2</property>
+	    <!-- hibernate properties --> 
+		 <property name="show_sql">true</property>
+		 <property name="format_sql">true</property>
+     	 <property name="dialect">org.hibernate.dialect.Oracle10gDialect</property>
+     	 <property name="hbm2ddl.auto">update</property> 
+		<!-- mapping file -->
+		<mapping resource="com/nt/domain/Student.hbm.xml"/>
+		<mapping resource="com/nt/domain/LibraryMembership.hbm.xml"/>
+		
+	</session-factory>
+</hibernate-configuration>
